@@ -46,17 +46,17 @@ if task == "Sentiment Classification":
 
         # Load models dynamically based on the selected option
         if model_option == "Perceptron":
-            with open(r'C:\Users\dhana\Desktop\streamlit_app\Deep-Prediction-Hub\PP.pkl', 'rb') as file:
+            with open('PP.pkl', 'rb') as file:
                 model = pickle.load(file)
         elif model_option == "Backpropagation":
-            with open(r'C:\Users\dhana\Desktop\streamlit_app\Deep-Prediction-Hub\BP.pkl', 'rb') as file:
+            with open('BP.pkl', 'rb') as file:
                 model = pickle.load(file)
         elif model_option == "DNN":
-            model = load_model(r'C:\Users\dhana\Desktop\streamlit_app\Deep-Prediction-Hub\DP.keras')
+            model = load_model('DP.keras')
         elif model_option == "RNN":
-            model = load_model(r'C:\Users\dhana\Desktop\streamlit_app\Deep-Prediction-Hub\RN.keras')
+            model = load_model('RN.keras')
         elif model_option == "LSTM":
-            model = load_model(r'C:\Users\dhana\Desktop\streamlit_app\Deep-Prediction-Hub\LS.keras')
+            model = load_model('LS.keras')
 
         if st.button("Classify Sentiment"):
             result = sentiment_classification(new_review_text, model)
@@ -69,7 +69,7 @@ elif task == "Tumor Detection":
 
     if uploaded_file is not None:
         # Load the tumor detection model
-        model = load_model(r'C:\Users\dhana\Desktop\streamlit_app\Deep-Prediction-Hub\CN.keras')
+        model = load_model('CN.keras')
         st.image(uploaded_file, caption="Uploaded Image.", use_column_width=False, width=200)
         st.write("")
 
